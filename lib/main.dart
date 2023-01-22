@@ -1,4 +1,5 @@
 import 'package:belajar_no1/basic_screen.dart';
+import 'package:belajar_no1/register_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const BasicScreen(),
+      home: const RegisterScreen(),
     );
   }
 }
