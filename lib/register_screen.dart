@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'login_screen.dart';
+
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({Key? key}) : super(key: key);
 
@@ -129,11 +131,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ),
                   SizedBox(height: 32,),
                   ElevatedButton(onPressed: () {
-                    if ((formKey.currentState?.validate() ?? false)) {
-                      setState(() {
-                        formKey.currentState?.save();
-                      });
-                    }
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const LoginScreen(),
+                      ),
+                    );
+                    // if ((formKey.currentState?.validate() ?? false)) {
+                    //   setState(() {
+                    //     formKey.currentState?.save();
+                    //   });
+                    // }
                   },
                       child: Text("Register")),
                   SizedBox(height: 32,),
