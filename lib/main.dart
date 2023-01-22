@@ -1,4 +1,4 @@
-import 'package:belajar_no1/basic_screen.dart';
+// import 'package:belajar_no1/basic_screen.dart';
 import 'package:belajar_no1/register_screen.dart';
 import 'package:flutter/material.dart';
 
