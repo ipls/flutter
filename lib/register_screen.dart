@@ -43,6 +43,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       return null;
                     },
                     decoration: InputDecoration(label: Text("Nama Lengkap")),
+                    onSaved: (val) {
+                      nama = nameController.text;
+                      nameController.text = "";
+                    },
                   ),
                   TextFormField(
                     controller: usernameController,
@@ -52,6 +56,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       }
                       return null;
                     },
+                    onSaved: (val) {
+                      username = usernameController.text;
+                      usernameController.text = "";
+                      },
                     decoration: InputDecoration(label: Text("Username")),
                   ),
                   TextFormField(
@@ -62,37 +70,53 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       }
                       return null;
                     },
+                    onSaved: (val) {
+                      email = emailController.text;
+                      emailController.text = "";
+                      },
                     keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(label: Text("Email")),
                   ),
                   TextFormField(
                     controller: passwordController,
-                    validator: (val){
-                      if (val?.isEmpty ?? false){
-                        return "Field ini tidak boleh kosong";
+                    validator: (value){
+                      if((value?.length ?? 0) < 8) {
+                        return "Nama Tidak Boleh Kurang Dari 8 Karakter";
                       }
                       return null;
+                    },
+                    onSaved: (val) {
+                      password = passwordController.text;
+                      passwordController.text = "";
                     },
                     obscureText: true,
                     decoration: InputDecoration(label: Text("Password")),
                   ),
                   TextFormField(
                     controller: addressController,
-                    validator: (val){
+                    validator: (val) {
                       if (val?.isEmpty ?? false){
                         return "Field ini tidak boleh kosong";
                       }
                       return null;
                     },
+                    onSaved: (val){
+                      address = addressController.text;
+                      addressController.text = "";
+                    },
                     decoration: InputDecoration(label: Text("Address")),
                   ),
                   TextFormField(
                     controller: phoneNumberController,
-                    validator: (val){
+                    validator: (val) {
                       if (val?.isEmpty ?? false){
                         return "Field ini tidak boleh kosong";
                       }
                       return null;
+                    },
+                    onSaved: (val) {
+                    phoneNumber = phoneNumberController.text;
+                    phoneNumberController.text = "";
                     },
                     keyboardType: TextInputType.phone,
                     decoration: InputDecoration(label: Text("Phone Number")),
@@ -107,18 +131,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ElevatedButton(onPressed: () {
                     if ((formKey.currentState?.validate() ?? false)) {
                       setState(() {
-                        nama = nameController.text;
-                        username = usernameController.text;
-                        email = emailController.text;
-                        password = passwordController.text;
-                        address = addressController.text;
-                        phoneNumber = phoneNumberController.text;
-                        nameController.text = "";
-                        usernameController.text = "";
-                        emailController.text = "";
-                        passwordController.text = "";
-                        addressController.text = "";
-                        phoneNumberController.text = "";
+                        formKey.currentState?.save();
                       });
                     }
                   },
