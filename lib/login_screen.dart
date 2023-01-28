@@ -61,7 +61,7 @@ class LoginScreenState extends State<LoginScreen> {
                           controller: passwordController,
                           // validator: (value){
                           //   if((value?.length ?? 0) < 8) {
-                          //     return "Password Tidak Boleh Kurang Dari 8 Karakter";
+                          //     return "Passw rd Tidak Boleh Kurang Dari 8 Karakter";
                           //   }
                           //   return null;
                           // },
