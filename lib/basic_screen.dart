@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'model/ToDo.dart';
-import 'package:intl/intl.dart/';
+import 'package:intl/intl.dart';
 import 'package:belajar_no1/edit_item_screen.dart';
 import 'package:belajar_no1/presentation/widgets/tag_dropdown_button.dart';
+
+import 'model/ToDo.dart';
 
 const tagDropdownValues = [
   "Chores",
@@ -133,9 +134,11 @@ class _BasicScreenState extends State<BasicScreen> {
                 child: Column(
                   children: [
                     TextFormField(
-                      controller: inputController,),
-                        TagDropdownButton(selectedTag,
-                        callbackSetState: (valueFromInternal){
+                      controller: inputController,
+                    ),
+                        TagDropdownButton(
+                          selectedTag,
+                          callbackSetState: (valueFromInternal){
                           setState(() {
                             selectedTag = valueFromInternal;
                           });
