@@ -1,6 +1,7 @@
 // import 'package:belajar_no1/basic_screen.dart';
 import 'package:belajar_no1/basic_screen.dart';
 import 'package:belajar_no1/login_screen.dart';
+import 'package:belajar_no1/tes_http_screen.dart';
 import 'package:flutter/material.dart';
 // import 'package:belajar_no1/register_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -48,7 +49,8 @@ class _MyAppState extends State<MyApp> {
             // is not restarted.
             primarySwatch: Colors.blue,
           ),
-          home: isUserHasLogin ? const BasicScreen() : const LoginScreen(),
+          home: TesHttpScreen(),
+          // isUserHasLogin ? const BasicScreen() : const LoginScreen(),
         );
       }
   }
